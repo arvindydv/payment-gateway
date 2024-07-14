@@ -3,6 +3,7 @@ import { ApiResponse } from "../utils/ApiResponse.js";
 import { Payment } from "../models/payment.model.js";
 import generateUniqueId from "generate-unique-id";
 
+//  create payment controller
 const createPayment = asyncHandler(async (req, res) => {
   const payload = req.body;
 
@@ -29,6 +30,7 @@ const createPayment = asyncHandler(async (req, res) => {
   return res.status(201).json(new ApiResponse(201, payment, ""));
 });
 
+// process payment controller
 const processPayment = asyncHandler(async (req, res) => {
   const paymentId = req.params.id;
   const payment = await Payment.findOne({
@@ -49,6 +51,7 @@ const processPayment = asyncHandler(async (req, res) => {
     .json(new ApiResponse(200, payment, "Transaction completed successfully"));
 });
 
+// get single payment by id
 const getPaymentStatus = asyncHandler(async (req, res) => {
   const paymentId = req.params.id;
   const payment = await Payment.findOne({
@@ -65,6 +68,7 @@ const getPaymentStatus = asyncHandler(async (req, res) => {
     .json(new ApiResponse(200, payment, "Payment get successfully"));
 });
 
+// get all  my payments
 const getAllPayments = asyncHandler(async (req, res) => {
   const payment = await Payment.find({
     userId: req.user._id,
