@@ -10,39 +10,40 @@ jobs:
     runs-on: ubuntu-latest
 
     steps:
-    - name: Checkout code
-      uses: actions/checkout@v2
+      - name: Checkout code
+        uses: actions/checkout@v2
 
-    - name: Set up Node.js
-      uses: actions/setup-node@v2
-      with:
-        node-version: '20'
+      - name: Set up Node.js
+        uses: actions/setup-node@v2
+        with:
+          node-version: "20"
 
-    - name: Install dependencies
-      run: npm install
+      - name: Install dependencies
+        run: npm install
 
-    - name: Build Docker image
-      run: docker build -t arvindydv/nxtjob-payment-gateway:latest .
+      - name: Build Docker image
+        run: docker build -t arvindydv/nxtjob-payment-gateway:latest .
 
-    - name: Log in to DockerHub
-      uses: docker/login-action@v2
-      with:
-        username: ${{ secrets.DOCKERHUB_USERNAME }}
-        password: ${{ secrets.DOCKERHUB_TOKEN }}
+      - name: Log in to DockerHub
+        uses: docker/login-action@v2
+        with:
+          username: ${{ secrets.DOCKERHUB_USERNAME }}
+          password: ${{ secrets.DOCKERHUB_TOKEN }}
 
-    - name: Push Docker image
-      run: docker push arvindydv/nxtjob-payment-gateway:latest
+      - name: Push Docker image
+        run: docker push arvindydv/nxtjob-payment-gateway:latest
 
-    - name: Verify Pushed Image
-      run: docker pull arvindydv/nxtjob-payment-gateway:latest
-  - name: Deploy to EC2
-      uses: appleboy/ssh-action@master
-      with:
-        host: ${{ secrets.SSH_HOST }}
-        username: ${{ secrets.SSH_USERNAME }}
-        key: ${{ secrets.SSH_KEY }}
-        script: |
-          sudo docker pull arvindydv/nxtjob-payment-gateway:latest
-          sudo docker stop nxtjob-payment-gateway || true
-          sudo docker rm nxtjob-payment-gateway || true
-          sudo docker run -d --name nxtjob-payment-gateway -p 5000:5000 arvindydv/nxtjob-payment-gateway:latest
+      - name: Verify Pushed Image
+        run: docker pull arvindydv/nxtjob-payment-gateway:latest
+
+      - name: Deploy to EC2
+        uses: appleboy/ssh-action@master
+        with:
+          host: ${{ secrets.SSH_HOST }}
+          username: ${{ secrets.SSH_USERNAME }}
+          key: ${{ secrets.SSH_KEY }}
+          script: |
+            sudo docker pull arvindydv/nxtjob-payment-gateway:latest
+            sudo docker stop nxtjob-payment-gateway || true
+            sudo docker rm nxtjob-payment-gateway || true
+            sudo docker run -d --name nxtjob-payment-gateway -p 5000:5000 arvindydv/nxtjob-payment-gateway:latest
