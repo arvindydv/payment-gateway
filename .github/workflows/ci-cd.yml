@@ -33,24 +33,16 @@ jobs:
     - name: Push Docker image
       run: docker push arvindydv/nxtjob-payment-gateway:latest
 
-  deploy:
-    needs: build
-    runs-on: ubuntu-latest
-
-    steps:
-    - name: Checkout code
-      uses: actions/checkout@v2
-
-    - name: Set up AWS CLI
-      uses: aws-actions/configure-aws-credentials@v1
+    - name: Verify Pushed Image
+      run: docker pull arvindydv/nxtjob-payment-gateway:latest
+  - name: Deploy to EC2
+      uses: appleboy/ssh-action@master
       with:
-        aws-access-key-id: ${{ secrets.AWS_ACCESS_KEY_ID }}
-        aws-secret-access-key: ${{ secrets.AWS_SECRET_ACCESS_KEY }}
-        aws-region: us-east-1
-
-    - name: Deploy to AWS
-      run: |
-        aws ecr get-login-password --region us-east-1 | docker login --username AWS --password-stdin ${{ secrets.AWS_ACCOUNT_ID }}.dkr.ecr.us-east-1.amazonaws.com
-        docker tag arvindydv/nxtjob-payment-gateway:latest ${{ secrets.AWS_ACCOUNT_ID }}.dkr.ecr.us-east-1.amazonaws.com/your-app:latest
-        docker push ${{ secrets.AWS_ACCOUNT_ID }}.dkr.ecr.us-east-1.amazonaws.com/your-app:latest
-        aws ecs update-service --cluster your-cluster --service your-service --force-new-deployment
+        host: ${{ secrets.SSH_HOST }}
+        username: ${{ secrets.SSH_USERNAME }}
+        key: ${{ secrets.SSH_KEY }}
+        script: |
+          sudo docker pull arvindydv/nxtjob-payment-gateway:latest
+          sudo docker stop nxtjob-payment-gateway || true
+          sudo docker rm nxtjob-payment-gateway || true
+          sudo docker run -d --name nxtjob-payment-gateway -p 5000:5000 arvindydv/nxtjob-payment-gateway:latest
