@@ -37,22 +37,35 @@ Hosted Api url: https://user-auth-qvhu.onrender.com
 To run the project locally, follow these steps:
 
 1. Clone the repository:
+
    ```sh
     git clone https://github.com/arvindydv/payment-gateway.
 
-2. Navigate to the project directory: 
+   ```
+
+2. Navigate to the project directory:
+
    ```sh
     cd payment-gateway.
+
+   ```
 
 3. Provide all env variable values which is presented in .env.sample file.
 
 4. Start the development server using docker:
-   ```sh 
+
+   ```sh
     docker run -p port mapping -e env variables image_name.
-    
+
+   ```
+
 5. Open your web browser and visit http://localhost:8000/api-docs to test the API's with swagger.
 
-
+6. If you want to run without Docker, run the following command:
+   ```sh
+     npm install.
+     npm start.
+   ```
 
 ## Contributing
 
