@@ -19,11 +19,14 @@ const createPayment = asyncHandler(async (req, res) => {
       );
   }
 
-  if (payload.amount < 0) {
-    return res
-      .status(400)
-      .json(new ApiResponse(400, {}, "Please enter vaild amount"));
+  if (isNaN(payload.amount) || parseFloat(payload.amount) <= 0) {
+    return res.status(400).json({
+      status: 400,
+      data: {},
+      message: "Please enter a valid amount greater than zero",
+    });
   }
+
   payload.userId = req.user._id;
   const payment = await Payment.create(payload);
 
