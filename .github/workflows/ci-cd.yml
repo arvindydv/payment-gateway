@@ -44,7 +44,7 @@ jobs:
           username: ${{ secrets.SSH_USERNAME }}
           key: ${{ secrets.SSH_KEY }}
           script: |
-            sudo docker pull arvindydv/nxtjob-payment-gateway:latest
-            sudo docker stop nxtjob-payment-gateway || true
-            sudo docker rm nxtjob-payment-gateway || true
-            sudo docker run -d --name nxtjob-payment-gateway -p 5000:5000 arvindydv/nxtjob-payment-gateway:latest
+              cd payment-gateway
+              sudo docker-compose down
+              sudo docker rmi arvindydv/nxtjob-payment-gateway:latest
+              sudo docker-compose up -d
