@@ -84,13 +84,7 @@
       "post": {
         "tags": ["Auth"],
         "description": "",
-        "parameters": [
-          {
-            "name": "Authorization",
-            "in": "header",
-            "type": "string"
-          }
-        ],
+        "parameters": [],
         "responses": {
           "200": {
             "description": "OK"
@@ -106,11 +100,6 @@
         "tags": ["Payment"],
         "description": "",
         "parameters": [
-          {
-            "name": "Authorization",
-            "in": "header",
-            "type": "string"
-          },
           {
             "name": "body",
             "in": "body",
@@ -147,13 +136,7 @@
       },
       "get": {
         "description": "",
-        "parameters": [
-          {
-            "name": "Authorization",
-            "in": "header",
-            "type": "string"
-          }
-        ],
+        "parameters": [],
         "responses": {
           "200": {
             "description": "OK"
@@ -170,14 +153,9 @@
         "description": "",
         "parameters": [
           {
-            "name": "id",
+            "name": "paymentId",
             "in": "path",
             "required": true,
-            "type": "string"
-          },
-          {
-            "name": "Authorization",
-            "in": "header",
             "type": "string"
           }
         ],
@@ -200,14 +178,9 @@
         "description": "",
         "parameters": [
           {
-            "name": "id",
+            "name": "paymentId",
             "in": "path",
             "required": true,
-            "type": "string"
-          },
-          {
-            "name": "Authorization",
-            "in": "header",
             "type": "string"
           }
         ],
@@ -230,14 +203,9 @@
         "description": "",
         "parameters": [
           {
-            "name": "id",
+            "name": "paymentId",
             "in": "path",
             "required": true,
-            "type": "string"
-          },
-          {
-            "name": "Authorization",
-            "in": "header",
             "type": "string"
           }
         ],

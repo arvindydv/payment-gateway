@@ -17,20 +17,27 @@ payment gateway backend built with nodejs, expressJs and mongoDB that aims to pr
 ## API Testing
 
 If you want to test API without cloning repository you can use the following url
-Hosted Api url: https://user-auth-qvhu.onrender.com
+Hosted Api url: https://payment-gateway-g87s.onrender.com
 
 ## Hosted API Routes and Payload
 
 1. Register User Api-
-   Route: https://user-auth-qvhu.onrender.com/api/auth/register
-   Payload: firstName, lastName, email, password, username.
+   Route: https://payment-gateway-g87s.onrender.com/api/auth/register
+   Payload:
+   ```sh
+       name: John
+       email: john@gmail.com
+       password: 123
+   ```
 2. Login User Api-
-   Route: https://user-auth-qvhu.onrender.com/api/auth/login
-   Payload: email, password.
+   Route: https://payment-gateway-g87s.onrender.com/api/auth/login
+   Payload:
+   ```sh
+       email: john@gmail.com
+       password: 123
+   ```
 3. Logout User Api-
-   Route: https://user-auth-qvhu.onrender.com/api/auth/logout
-4. Get User Profile Api-
-   Route: https://user-auth-qvhu.onrender.com/api/user/profile
+   Route: https://payment-gateway-g87s.onrender.com/api/auth/logout
 
 ## Installation
 
