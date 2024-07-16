@@ -39,14 +39,14 @@ To run the project locally, follow these steps:
 1. Clone the repository:
 
    ```sh
-    git clone https://github.com/arvindydv/payment-gateway.
+    git clone https://github.com/arvindydv/payment-gateway
 
    ```
 
 2. Navigate to the project directory:
 
    ```sh
-    cd payment-gateway.
+    cd payment-gateway
 
    ```
 
@@ -55,7 +55,7 @@ To run the project locally, follow these steps:
 4. Start the development server using docker:
 
    ```sh
-    docker run -p port mapping -e env variables image_name.
+    docker run -p port mapping -e env variables image_name
 
    ```
 
@@ -63,8 +63,10 @@ To run the project locally, follow these steps:
 
 6. If you want to run without Docker, run the following command:
    ```sh
-     npm install.
-     npm start.
+     npm install
+   ```
+   ```sh
+   npm start
    ```
 
 ## Contributing
