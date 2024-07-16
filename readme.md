@@ -41,10 +41,15 @@ To run the project locally, follow these steps:
     git clone https://github.com/arvindydv/payment-gateway.
 
 2. Navigate to the project directory: 
- ```sh
-  cd payment-gateway
+   ```sh
+    cd payment-gateway.
+
 3. Provide all env variable values which is presented in .env.sample file.
-4. Start the development server using docker: ``` docker run -p port mapping -e env variables image_name
+
+4. Start the development server using docker:
+   ```sh 
+    docker run -p port mapping -e env variables image_name.
+    
 5. Open your web browser and visit http://localhost:8000/api-docs to test the API's with swagger.
 
 
