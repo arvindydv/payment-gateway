@@ -17,7 +17,11 @@ payment gateway backend built with nodejs, expressJs and mongoDB that aims to pr
 ## API Testing
 
 If you want to test API without cloning repository you can use the following url
-Hosted Api url: http://ec2-13-49-1-88.eu-north-1.compute.amazonaws.com:5000
+
+Hosted render api url: https://payment-gateway-1-tkqp.onrender.com
+
+Hosted aws Api url: http://ec2-13-49-1-88.eu-north-1.compute.amazonaws.com:5000
+
 
 ## Hosted API Routes and Payload
 
