@@ -17,12 +17,12 @@ payment gateway backend built with nodejs, expressJs and mongoDB that aims to pr
 ## API Testing
 
 If you want to test API without cloning repository you can use the following url
-Hosted Api url: https://payment-gateway-g87s.onrender.com
+Hosted Api url: http://ec2-13-49-1-88.eu-north-1.compute.amazonaws.com:5000
 
 ## Hosted API Routes and Payload
 
 1. Register User Api-
-   Route: https://payment-gateway-g87s.onrender.com/api/auth/register
+   Route: http://ec2-13-49-1-88.eu-north-1.compute.amazonaws.com:5000/api/auth/register
    Payload:
    ```sh
        name: John
@@ -30,14 +30,32 @@ Hosted Api url: https://payment-gateway-g87s.onrender.com
        password: 123
    ```
 2. Login User Api-
-   Route: https://payment-gateway-g87s.onrender.com/api/auth/login
+   Route: http://ec2-13-49-1-88.eu-north-1.compute.amazonaws.com:5000/api/auth/login
    Payload:
    ```sh
        email: john@gmail.com
        password: 123
    ```
 3. Logout User Api-
-   Route: https://payment-gateway-g87s.onrender.com/api/auth/logout
+   Route: http://ec2-13-49-1-88.eu-north-1.compute.amazonaws.com:5000/api/auth/logout
+
+4. Create payment Api -
+   Route: http://ec2-13-49-1-88.eu-north-1.compute.amazonaws.com:5000/api/payment/payment
+   payload:
+   ```sh
+   "amount": 50,
+    "currency": "USD",
+    "paymentMethod": "credit_card"
+   ```
+ 5. Process payment
+   Route: http://ec2-13-49-1-88.eu-north-1.compute.amazonaws.com:5000/api/payment/process/paymentId
+
+ 6. Check Payment status
+    Route: http://ec2-13-49-1-88.eu-north-1.compute.amazonaws.com:5000/api/payment/payment/paymentId
+ 
+ 7. Refund Api - 
+    Route: http://ec2-13-49-1-88.eu-north-1.compute.amazonaws.com:5000/api/refund/refund/paymentId
+
 
 ## Installation
 
