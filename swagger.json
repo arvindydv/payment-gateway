@@ -135,6 +135,7 @@
         }
       },
       "get": {
+        "tags": ["Payment"],
         "description": "",
         "parameters": [],
         "responses": {
