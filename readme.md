@@ -23,45 +23,6 @@ Hosted render api url: https://payment-gateway-1-tkqp.onrender.com
 Hosted aws Api url: http://ec2-13-49-1-88.eu-north-1.compute.amazonaws.com:5000
 
 
-## Hosted API Routes and Payload
-
-1. Register User Api-
-   Route: http://ec2-13-49-1-88.eu-north-1.compute.amazonaws.com:5000/api/auth/register
-   Payload:
-   ```sh
-       name: John
-       email: john@gmail.com
-       password: 123
-   ```
-2. Login User Api-
-   Route: http://ec2-13-49-1-88.eu-north-1.compute.amazonaws.com:5000/api/auth/login
-   Payload:
-   ```sh
-       email: john@gmail.com
-       password: 123
-   ```
-3. Logout User Api-
-   Route: http://ec2-13-49-1-88.eu-north-1.compute.amazonaws.com:5000/api/auth/logout
-
-4. Create payment Api -
-   Route: http://ec2-13-49-1-88.eu-north-1.compute.amazonaws.com:5000/api/payment/payment
-   payload:
-   ```sh
-   "amount": 50,
-    "currency": "USD",
-    "paymentMethod": "credit_card"
-   ```
-5. Process payment
-   Route: http://ec2-13-49-1-88.eu-north-1.compute.amazonaws.com:5000/api/payment/process/paymentId
-
-6. Check Payment status
-   Route: http://ec2-13-49-1-88.eu-north-1.compute.amazonaws.com:5000/api/payment/payment/paymentId
-
-7. Refund Api -
-   Route: http://ec2-13-49-1-88.eu-north-1.compute.amazonaws.com:5000/api/refund/refund/paymentId
-
-## Installation
-
 To run the project locally, follow these steps:
 
 1. Clone the repository:
@@ -96,6 +57,11 @@ To run the project locally, follow these steps:
    ```sh
    npm start
    ```
+
+7. You can also pull docker image - 
+    ```sh
+    docker pull arvindydv/nxtjob-payment-gateway
+    ```
 
 ## Contributing
 
