@@ -19,10 +19,6 @@ payment gateway backend built with nodejs, expressJs and mongoDB that aims to pr
 If you want to test API without cloning repository you can use the following url
 Hosted Api url: http://ec2-13-49-1-88.eu-north-1.compute.amazonaws.com:5000
 
-Hosted Render API Url: https://payment-gateway-g87s.onrender.com
-
-
-
 ## Hosted API Routes and Payload
 
 1. Register User Api-
@@ -51,15 +47,14 @@ Hosted Render API Url: https://payment-gateway-g87s.onrender.com
     "currency": "USD",
     "paymentMethod": "credit_card"
    ```
- 5. Process payment
+5. Process payment
    Route: http://ec2-13-49-1-88.eu-north-1.compute.amazonaws.com:5000/api/payment/process/paymentId
 
- 6. Check Payment status
-    Route: http://ec2-13-49-1-88.eu-north-1.compute.amazonaws.com:5000/api/payment/payment/paymentId
- 
- 7. Refund Api - 
-    Route: http://ec2-13-49-1-88.eu-north-1.compute.amazonaws.com:5000/api/refund/refund/paymentId
+6. Check Payment status
+   Route: http://ec2-13-49-1-88.eu-north-1.compute.amazonaws.com:5000/api/payment/payment/paymentId
 
+7. Refund Api -
+   Route: http://ec2-13-49-1-88.eu-north-1.compute.amazonaws.com:5000/api/refund/refund/paymentId
 
 ## Installation
 
