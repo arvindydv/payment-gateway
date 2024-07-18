@@ -114,9 +114,6 @@
                 },
                 "paymentMethod": {
                   "example": "any"
-                },
-                "userId": {
-                  "example": "any"
                 }
               }
             }
@@ -200,7 +197,7 @@
     },
     "/refund/refund/{id}": {
       "post": {
-        "tags": ["Payment"],
+        "tags": ["Refund"],
         "description": "",
         "parameters": [
           {
