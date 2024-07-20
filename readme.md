@@ -24,7 +24,7 @@ Hosted aws Api url: http://ec2-13-49-1-88.eu-north-1.compute.amazonaws.com:5000
 
 To run the project locally, follow these steps:
 
-## Run using Docker
+## Run using Docker Image
 
 1. You can pull docker image -
    ```sh
@@ -39,23 +39,25 @@ To run the project locally, follow these steps:
 
 3. Open your web browser and visit http://localhost:8000/api-docs to test the API's with swagger.
 
-4. Clone the repository:
+## How to clone Repository
+
+1. Clone the repository:
 
    ```sh
     git clone https://github.com/arvindydv/payment-gateway
 
    ```
 
-5. Navigate to the project directory:
+2. Navigate to the project directory:
 
    ```sh
     cd payment-gateway
 
    ```
 
-6. Provide all env variable values which is presented in .env.sample file.
+3. Provide all env variable values which is presented in .env.sample file.
 
-7. If you want to run without Docker, run the following command:
+4. If you want to run without Docker, run the following command:
    ```sh
      npm install
    ```
