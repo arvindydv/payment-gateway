@@ -6,42 +6,59 @@
     "version": "1.0.0"
   },
   "host": "localhost:8000",
-  "basePath": "/api/",
+  "basePath": "/api",
   "schemes": ["http"],
+  "securityDefinitions": {
+    "AuthHeader": {
+      "type": "apiKey",
+      "in": "header",
+      "name": "Authorization"
+    }
+  },
+  "security": [
+    {
+      "AuthHeader": []
+    }
+  ],
   "paths": {
     "/auth/register": {
       "post": {
         "tags": ["Auth"],
-        "description": "",
+        "description": "Register a new user",
         "parameters": [
           {
             "name": "body",
             "in": "body",
+            "required": true,
             "schema": {
               "type": "object",
               "properties": {
                 "name": {
-                  "example": "any"
+                  "type": "string",
+                  "example": "John Doe"
                 },
                 "email": {
-                  "example": "any"
+                  "type": "string",
+                  "example": "john@example.com"
                 },
                 "password": {
-                  "example": "any"
+                  "type": "string",
+                  "example": "password123"
                 }
-              }
+              },
+              "required": ["name", "email", "password"]
             }
           }
         ],
         "responses": {
           "201": {
-            "description": "Created"
+            "description": "User registered successfully"
           },
           "400": {
-            "description": "Bad Request"
+            "description": "Invalid request data"
           },
           "409": {
-            "description": "Conflict"
+            "description": "User already exists"
           }
         }
       }
@@ -49,33 +66,37 @@
     "/auth/login": {
       "post": {
         "tags": ["Auth"],
-        "description": "",
+        "description": "Login user",
         "parameters": [
           {
             "name": "body",
             "in": "body",
+            "required": true,
             "schema": {
               "type": "object",
               "properties": {
                 "email": {
-                  "example": "any"
+                  "type": "string",
+                  "example": "john@example.com"
                 },
                 "password": {
-                  "example": "any"
+                  "type": "string",
+                  "example": "password123"
                 }
-              }
+              },
+              "required": ["email", "password"]
             }
           }
         ],
         "responses": {
           "200": {
-            "description": "OK"
+            "description": "Login successful"
           },
           "400": {
-            "description": "Bad Request"
+            "description": "Invalid request data"
           },
           "404": {
-            "description": "Not Found"
+            "description": "User not found"
           }
         }
       }
@@ -83,11 +104,11 @@
     "/auth/logout": {
       "post": {
         "tags": ["Auth"],
-        "description": "",
+        "description": "Logout user",
         "parameters": [],
         "responses": {
           "200": {
-            "description": "OK"
+            "description": "Logout successful"
           },
           "401": {
             "description": "Unauthorized"
@@ -98,33 +119,42 @@
     "/payment/payment": {
       "post": {
         "tags": ["Payment"],
-        "description": "",
+        "description": "Create a new payment",
         "parameters": [
           {
             "name": "body",
             "in": "body",
+            "required": true,
             "schema": {
               "type": "object",
               "properties": {
                 "amount": {
-                  "example": "any"
+                  "type": "number",
+                  "example": 100
                 },
                 "currency": {
-                  "example": "any"
+                  "type": "string",
+                  "example": "USD"
                 },
                 "paymentMethod": {
-                  "example": "any"
+                  "type": "string",
+                  "example": "credit_card"
+                },
+                "userId": {
+                  "type": "string",
+                  "example": "user123"
                 }
-              }
+              },
+              "required": ["amount", "currency", "paymentMethod", "userId"]
             }
           }
         ],
         "responses": {
           "201": {
-            "description": "Created"
+            "description": "Payment created successfully"
           },
           "400": {
-            "description": "Bad Request"
+            "description": "Invalid request data"
           },
           "401": {
             "description": "Unauthorized"
@@ -133,11 +163,11 @@
       },
       "get": {
         "tags": ["Payment"],
-        "description": "",
+        "description": "Get all payments",
         "parameters": [],
         "responses": {
           "200": {
-            "description": "OK"
+            "description": "Payments retrieved successfully"
           },
           "401": {
             "description": "Unauthorized"
@@ -148,10 +178,10 @@
     "/payment/process/{id}": {
       "patch": {
         "tags": ["Payment"],
-        "description": "",
+        "description": "Process a payment",
         "parameters": [
           {
-            "name": "paymentId",
+            "name": "id",
             "in": "path",
             "required": true,
             "type": "string"
@@ -159,13 +189,13 @@
         ],
         "responses": {
           "200": {
-            "description": "OK"
+            "description": "Payment processed successfully"
           },
           "401": {
             "description": "Unauthorized"
           },
           "404": {
-            "description": "Not Found"
+            "description": "Payment not found"
           }
         }
       }
@@ -173,10 +203,10 @@
     "/payment/payment/{id}": {
       "get": {
         "tags": ["Payment"],
-        "description": "",
+        "description": "Get a specific payment by ID",
         "parameters": [
           {
-            "name": "paymentId",
+            "name": "id",
             "in": "path",
             "required": true,
             "type": "string"
@@ -184,13 +214,13 @@
         ],
         "responses": {
           "200": {
-            "description": "OK"
+            "description": "Payment retrieved successfully"
           },
           "401": {
             "description": "Unauthorized"
           },
           "404": {
-            "description": "Not Found"
+            "description": "Payment not found"
           }
         }
       }
@@ -198,10 +228,10 @@
     "/refund/refund/{id}": {
       "post": {
         "tags": ["Refund"],
-        "description": "",
+        "description": "Request a refund",
         "parameters": [
           {
-            "name": "paymentId",
+            "name": "id",
             "in": "path",
             "required": true,
             "type": "string"
@@ -209,16 +239,16 @@
         ],
         "responses": {
           "200": {
-            "description": "OK"
+            "description": "Refund requested successfully"
           },
           "400": {
-            "description": "Bad Request"
+            "description": "Invalid request data"
           },
           "401": {
             "description": "Unauthorized"
           },
           "404": {
-            "description": "Not Found"
+            "description": "Payment not found"
           }
         }
       }
