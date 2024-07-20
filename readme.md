@@ -22,57 +22,46 @@ Hosted render api url: https://payment-gateway-1-tkqp.onrender.com
 
 Hosted aws Api url: http://ec2-13-49-1-88.eu-north-1.compute.amazonaws.com:5000
 
-
 To run the project locally, follow these steps:
- ## Run using Docker
 
-1. You can pull docker image - 
-    ```sh
-    docker pull arvindydv/nxtjob-payment-gateway
-    ```
-    
-2. Run This Docker command - 
+## Run using Docker
 
-    ```sh
-    sudo docker run -p 8000:8000 -e MONGODB_URI="" -e ACCESS_TOKEN_EXPIRY="" -e REFRESH_TOKEN_SECRET="" -e REFRESH_TOKEN_EXPIRY="" -e PORT=8000 arvindydv/nxtjob-payment-gateway:latest
+1. You can pull docker image -
+   ```sh
+   docker pull arvindydv/nxtjob-payment-gateway
+   ```
+2. Run This Docker command -
 
+   ```sh
+   sudo docker run -p 8000:8000 -e MONGODB_URI="" -e ACCESS_TOKEN_EXPIRY="" -e REFRESH_TOKEN_SECRET="" -e REFRESH_TOKEN_EXPIRY="" -e PORT=8000 arvindydv/nxtjob-payment-gateway:latest
 
+   ```
 
-1. Clone the repository:
+3. Open your web browser and visit http://localhost:8000/api-docs to test the API's with swagger.
+
+4. Clone the repository:
 
    ```sh
     git clone https://github.com/arvindydv/payment-gateway
 
    ```
 
-2. Navigate to the project directory:
+5. Navigate to the project directory:
 
    ```sh
     cd payment-gateway
 
    ```
 
-3. Provide all env variable values which is presented in .env.sample file.
+6. Provide all env variable values which is presented in .env.sample file.
 
-4. Start the development server using docker:
-
-   ```sh
-    docker run -p port mapping -e env variables image_name
-
-   ```
-
-5. Open your web browser and visit http://localhost:8000/api-docs to test the API's with swagger.
-
-6. If you want to run without Docker, run the following command:
+7. If you want to run without Docker, run the following command:
    ```sh
      npm install
    ```
    ```sh
    npm start
    ```
-
-
-    
 
 ## Contributing
 
