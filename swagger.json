@@ -139,13 +139,9 @@
                 "paymentMethod": {
                   "type": "string",
                   "example": "credit_card"
-                },
-                "userId": {
-                  "type": "string",
-                  "example": "user123"
                 }
               },
-              "required": ["amount", "currency", "paymentMethod", "userId"]
+              "required": ["amount", "currency", "paymentMethod"]
             }
           }
         ],
