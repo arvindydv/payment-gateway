@@ -24,6 +24,19 @@ Hosted aws Api url: http://ec2-13-49-1-88.eu-north-1.compute.amazonaws.com:5000
 
 
 To run the project locally, follow these steps:
+ ## Run using Docker
+
+1. You can pull docker image - 
+    ```sh
+    docker pull arvindydv/nxtjob-payment-gateway
+    ```
+    
+2. Run This Docker command - 
+
+    ```sh
+    sudo docker run -p 8000:8000 -e MONGODB_URI="" -e ACCESS_TOKEN_EXPIRY="" -e REFRESH_TOKEN_SECRET="" -e REFRESH_TOKEN_EXPIRY="" -e PORT=8000 arvindydv/nxtjob-payment-gateway:latest
+
+
 
 1. Clone the repository:
 
@@ -58,10 +71,8 @@ To run the project locally, follow these steps:
    npm start
    ```
 
-7. You can also pull docker image - 
-    ```sh
-    docker pull arvindydv/nxtjob-payment-gateway
-    ```
+
+    
 
 ## Contributing
 
